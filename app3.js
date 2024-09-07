@@ -47,7 +47,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash());
 app.use('/', indexRoutes);
 
-
 //#region WEBSERVER
 //set NODE_OPTIONS=--openssl-legacy-provider in cmd in VS;read magic wiki
 if(host=='vm04'){
