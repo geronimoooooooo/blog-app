@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+</head>
+<body>
+  <h1>Welcome, <%= user.username %>!</h1>
+  <p>Age: <%= user.age %></p>
+
+  <h2>Your Blogs</h2>
+  <form action="/blogs" method="POST">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Content" required></textarea>
+    <button type="submit">Add Blog</button>
+  </form>
+
+  <% blogs.forEach(blog => { %>
+    <h3><%= blog.title %></h3>
+    <p><%= blog.content %></p>
+    <form action="/blogs/<%= blog._id %>/delete" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+  <% }) %>
+
+  <a href="/logout">Logout</a>
+  <a href="/">home</a>
+</body>
+</html>
